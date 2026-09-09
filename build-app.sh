@@ -4,7 +4,7 @@ set -eu
 
 cd "$(dirname "$0")"
 
-out="dist/清理图标缓存.app"
+out="dist/clean-macOS-icon-cache.app"
 
 if [ -d "$out" ]; then
   rm -rf -- "$out"

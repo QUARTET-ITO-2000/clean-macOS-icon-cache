@@ -1,18 +1,21 @@
 const app = Application.currentApplication();
 app.includeStandardAdditions = true;
 
+const appName = "Clean macOS Icon Cache";
+
 const response = app.displayDialog(
-  "这将清除 macOS 的图标缓存，并重启 Dock 与 Finder。\n\n执行期间桌面与 Finder 会短暂刷新。是否继续？",
+  "This will clear the macOS icon cache and restart Dock and Finder.\n\n" +
+  "Your desktop and Finder will briefly refresh. Continue?",
   {
-    withTitle: "清理图标缓存",
-    buttons: ["取消", "清理"],
-    defaultButton: "清理",
-    cancelButton: "取消",
+    withTitle: appName,
+    buttons: ["Cancel", "Clear"],
+    defaultButton: "Clear",
+    cancelButton: "Cancel",
     withIcon: "caution"
   }
 );
 
-if (response.buttonReturned === "清理") {
+if (response.buttonReturned === "Clear") {
   try {
     app.doShellScript(
       "find /private/var/folders/ \\( -name com.apple.dock.iconcache -or -name com.apple.iconservices \\) -exec rm -rfv {} \\;\n" +
@@ -21,17 +24,17 @@ if (response.buttonReturned === "清理") {
       "killall Finder",
       { withAdministratorPrivileges: true }
     );
-    app.displayDialog("图标缓存已清理完成。", {
-      withTitle: "清理图标缓存",
-      buttons: ["好"],
-      defaultButton: "好",
+    app.displayDialog("Icon cache cleared successfully.", {
+      withTitle: appName,
+      buttons: ["OK"],
+      defaultButton: "OK",
       withIcon: "note"
     });
   } catch (error) {
-    app.displayDialog("未能完成清理：\n" + error, {
-      withTitle: "清理图标缓存",
-      buttons: ["好"],
-      defaultButton: "好",
+    app.displayDialog("Unable to clear the icon cache:\n" + error, {
+      withTitle: appName,
+      buttons: ["OK"],
+      defaultButton: "OK",
       withIcon: "stop"
     });
   }
