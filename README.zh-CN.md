@@ -60,6 +60,24 @@ chmod +x clean-icon-cache.sh
 
 生成 `dist/clean-macOS-icon-cache.app`，可直接双击运行。在本地打包的应用不会触发 Gatekeeper 的“无法验证开发者”提示。
 
+## 代码签名与公证
+
+本项目未使用 Apple Developer ID 证书签名，也未通过 Apple 公证（notarization），因为作者未加入 Apple Developer Program。由 `build-app.sh` 生成的 `.app` 仅带有 ad-hoc 签名。
+
+在你自己的 Mac 上构建并运行时，应用可以正常打开。但从 GitHub Release 下载 zip 后，macOS 可能会以“无法验证开发者”为由阻止首次启动。
+
+如需打开：
+
+1. 推荐：使用 `./build-app.sh` 从源码自行构建后再运行。
+2. 按住 Control 键点按应用并选择“打开”以完成首次启动。
+3. 或在“终端”中移除隔离属性：
+
+   ```bash
+   xattr -dr com.apple.quarantine /path/to/clean-macOS-icon-cache.app
+   ```
+
+此应用会请求管理员权限，运行前请查看源码。未经过公证不代表软件一定安全，只说明作者没有付费加入 Apple Developer 计划。
+
 ## 安全说明
 
 - 删除目标仅限 macOS 已知的图标缓存路径，但脚本中包含 `sudo` 与 `rm -rf`，运行前建议通读源码。

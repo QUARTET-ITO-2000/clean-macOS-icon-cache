@@ -60,6 +60,24 @@ If cleanup fails, Dock and Finder are not restarted.
 
 This creates `dist/clean-macOS-icon-cache.app`, which you can double-click. Building locally avoids the Gatekeeper "unidentified developer" warning.
 
+## Code signing & notarization
+
+This project is **not** signed with an Apple Developer ID and is **not** notarized by Apple, because its author is not enrolled in the Apple Developer Program. The `.app` produced by `build-app.sh` has only an ad-hoc signature.
+
+The app runs normally when you build and launch it on your own Mac. However, after downloading a release zip from GitHub, macOS may block the first launch with a "developer cannot be verified" warning.
+
+To open it anyway:
+
+1. Recommended: build from source with `./build-app.sh`, then run the app.
+2. Control-click the app and choose **Open** for the first launch.
+3. Or remove the quarantine attribute in Terminal:
+
+   ```bash
+   xattr -dr com.apple.quarantine /path/to/clean-macOS-icon-cache.app
+   ```
+
+This app requests administrator privileges. Review the source before running. Note that the absence of notarization is not a sign of safety — it simply reflects that the author has not paid for an Apple Developer account.
+
 ## Safety
 
 - Deletion targets are limited to known macOS icon-cache paths, but the scripts contain `sudo` and `rm -rf`. Read the source before running.

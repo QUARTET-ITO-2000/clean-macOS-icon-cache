@@ -60,6 +60,24 @@ Si la limpieza falla, Dock y Finder no se reinician.
 
 Esto crea `dist/clean-macOS-icon-cache.app`, que puede abrir con doble clic. Compilar localmente evita la advertencia de Gatekeeper sobre "desarrollador no verificado".
 
+## Firma de código y notarización
+
+Este proyecto **no** está firmado con un Apple Developer ID y **no** está notarizado por Apple, porque su autor no está inscrito en el Apple Developer Program. La `.app` generada por `build-app.sh` solo tiene una firma ad hoc.
+
+La aplicación funciona con normalidad cuando se compila y se abre en su propio Mac. Sin embargo, después de descargar un zip desde una Release de GitHub, macOS puede bloquear el primer lanzamiento con una advertencia de "desarrollador no verificado".
+
+Para abrirla de todos modos:
+
+1. Recomendado: compile desde el código fuente con `./build-app.sh` y ejecute la aplicación.
+2. Haga clic con Control en la aplicación y elija **Abrir** para el primer lanzamiento.
+3. O elimine el atributo de cuarentena en Terminal:
+
+   ```bash
+   xattr -dr com.apple.quarantine /path/to/clean-macOS-icon-cache.app
+   ```
+
+Esta aplicación solicita privilegios de administrador. Revise el código fuente antes de ejecutarla. Tenga en cuenta que la ausencia de notarización no es una señal de seguridad: simplemente refleja que el autor no ha pagado por una cuenta de Apple Developer.
+
 ## Seguridad
 
 - Los objetivos de eliminación se limitan a rutas conocidas de la caché de iconos de macOS, pero los scripts contienen `sudo` y `rm -rf`. Lea el código antes de ejecutarlos.
