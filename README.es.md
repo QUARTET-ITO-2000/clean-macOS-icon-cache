@@ -43,7 +43,14 @@ chmod +x clean-icon-cache.sh
 ./clean-icon-cache.sh
 ```
 
-Ambas versiones solicitan privilegios de administrador. La versión JXA pide confirmación primero; la versión de shell no lo hace, así que asegúrese de no estar realizando una tarea importante antes de ejecutarla.
+Ambas versiones solicitan privilegios de administrador y piden confirmación antes de hacer cualquier cambio. Para omitir la pregunta, use `--yes`; para previsualizar qué se eliminaría sin modificar nada, use `--dry-run`:
+
+```bash
+./clean-icon-cache.sh --yes
+./clean-icon-cache.sh --dry-run
+```
+
+Si la limpieza falla, Dock y Finder no se reinician.
 
 ### Compilar la aplicación
 

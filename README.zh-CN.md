@@ -43,7 +43,14 @@ chmod +x clean-icon-cache.sh
 ./clean-icon-cache.sh
 ```
 
-两个版本都会请求管理员权限。JXA 版本会先弹窗确认；Shell 版本没有确认步骤，运行前请确认没有正在进行的重要操作。
+两个版本都会请求管理员权限，并在执行前要求确认。需要跳过确认时传入 `--yes`；只想预览将删除的内容而不做任何修改时，传入 `--dry-run`：
+
+```bash
+./clean-icon-cache.sh --yes
+./clean-icon-cache.sh --dry-run
+```
+
+如果清理失败，不会重启 Dock 与 Finder。
 
 ### 打包成 App
 
