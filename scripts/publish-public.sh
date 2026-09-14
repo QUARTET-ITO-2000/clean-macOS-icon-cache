@@ -59,7 +59,7 @@ if [ "$ahead" -gt 0 ]; then
 	fail "Refusing to publish: $ahead commit(s) are not on Synology yet. Run 'git push' first."
 fi
 
-private_files=$(git ls-files | grep -Ei '(^|/)(\.env|credentials|secrets|private)([./]|$)|\.(key|pem|p12|pfx)$' || true)
+private_files=$(git ls-files | grep -Ei '(^|/)(\.env|credentials|secrets|private|\.codex-[^/]*)([./]|$)|\.(key|pem|p12|pfx)$' || true)
 if [ -n "$private_files" ]; then
 	printf '%s\n' "$private_files" >&2
 	fail "Refusing to publish: the files above look private. Review them first."

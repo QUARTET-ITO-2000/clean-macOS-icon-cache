@@ -4,3 +4,6 @@ dist/
 
 # Local commit-signing keys (never commit)
 .codex-signing/
+
+# Machine-specific notes (NAS host, ports, local paths)
+.codex-local/
