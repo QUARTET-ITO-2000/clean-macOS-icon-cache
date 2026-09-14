@@ -1,3 +1,6 @@
 .DS_Store
 dist/
 *.app/
+
+# Local commit-signing keys (never commit)
+.codex-signing/
