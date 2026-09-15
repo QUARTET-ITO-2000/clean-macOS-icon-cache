@@ -19,6 +19,7 @@
 | `clean-icon-cache.js` | JXA 脚本，带确认弹窗，运行时请求管理员权限。 |
 | `clean-icon-cache.sh` | Shell 版本，直接使用 `sudo`。 |
 | `build-app.sh` | 从 `clean-icon-cache.js` 打包出可双击运行的 `.app`。 |
+| `AI-DEVELOPMENT.md` | 项目开发方式说明：初版由作者本人编写，之后以 OpenAI Codex 辅助开发。 |
 
 ## 工作原理
 

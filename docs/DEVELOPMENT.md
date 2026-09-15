@@ -14,6 +14,14 @@ Whatever `git remote -v` reports is the truth about the URLs. Machine-specific d
 (NAS host, SSH port, account, key paths) are intentionally kept out of the repository in
 `.codex-local/ENVIRONMENT.md`, which is gitignored.
 
+## Repository documents
+
+- `README.md` — user-facing documentation (plus `README.zh-CN.md`, `README.es.md`).
+- `AI-DEVELOPMENT.md` — how the project was developed: the author's original version,
+  then AI-assisted work with OpenAI Codex.
+- `AGENTS.md` — rules coding agents must follow in this repository.
+- `docs/DEVELOPMENT.md` — this file.
+
 ## Daily work
 
 ```sh
@@ -99,6 +107,9 @@ Kept so later sessions do not have to rediscover it:
   a sibling project for signing. Existing commit signatures still verify.
 - `.codex-signing/` and `.codex-local/` are gitignored, and the publish script refuses to
   publish any tracked path matching `.codex-*`.
+- `AI-DEVELOPMENT.md` was added to declare the project's provenance (the author's
+  original script, then AI-assisted development with Codex) and is linked from all three
+  READMEs. Keep it accurate as the project evolves.
 - These setup commits were pushed to Synology only. GitHub's `main` is therefore behind
   Synology's `main` by design — that gap is not a bug to fix by pushing.
 

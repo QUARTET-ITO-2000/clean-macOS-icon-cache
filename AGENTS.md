@@ -50,6 +50,14 @@ points into `.codex-signing/`). Verify with `git log --show-signature`; it shoul
 Run `git status`, `git remote -v` and `git branch -vv`, and report the current state
 before changing anything.
 
+## Provenance and disclosure
+
+`AI-DEVELOPMENT.md` discloses how this project was developed: the author wrote the
+original version before this repository existed, and the work since then has been
+AI-assisted with OpenAI Codex. Keep that file accurate and keep it in the repository. If
+a session adds a substantial amount of AI-generated code, the classification and notes
+there must still describe reality. Do not delete it or soften it.
+
 ## Where the details live
 
 - Workflow, release steps, safety checks: `docs/DEVELOPMENT.md`

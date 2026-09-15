@@ -19,6 +19,7 @@ English is the primary language of this project. The documentation is also avail
 | `clean-icon-cache.js` | JXA script with a confirmation dialog. Requests administrator privileges when run. |
 | `clean-icon-cache.sh` | Shell version. Uses `sudo` directly. |
 | `build-app.sh` | Builds a double-clickable `.app` from `clean-icon-cache.js`. |
+| `AI-DEVELOPMENT.md` | How the project was developed: the author's original version, then AI-assisted work with OpenAI Codex. |
 
 ## How it works
 
