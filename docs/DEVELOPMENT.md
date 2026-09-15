@@ -110,8 +110,9 @@ Kept so later sessions do not have to rediscover it:
 - `AI-DEVELOPMENT.md` was added to declare the project's provenance (the author's
   original script, then AI-assisted development with Codex) and is linked from all three
   READMEs. Keep it accurate as the project evolves.
-- These setup commits were pushed to Synology only. GitHub's `main` is therefore behind
-  Synology's `main` by design — that gap is not a bug to fix by pushing.
+- The setup commits were first pushed to Synology only, and then published to GitHub on
+  2026-09-15 as an explicit release. GitHub lagging behind Synology between releases is
+  normal and expected; it is not a bug to fix by pushing.
 
 ## Known, harmless quirks
 
